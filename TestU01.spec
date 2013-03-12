@@ -1,7 +1,7 @@
 Summary:        Utilities for the statistical testing of uniform random number generators
 Name:           TestU01
 Version:        1.2.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 License:        Custom (Non-Commercial Use Only)
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Group:          Development/Libraries
@@ -93,6 +93,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Tue Mar 12 2013 Nicolas Chauvet <kwizart@gmail.com> - 1.2.3-3
+- https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Wed Jan 25 2012 Jirka Hladky <hladky.jiri@gmail.com> - 1.2.3-2
  - Changed license to "Custom (Non-Commercial Use Only)"
 * Tue Dec 20 2011 Jirka Hladky <hladky.jiri@gmail.com> - 1.2.3-1
