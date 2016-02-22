@@ -1,13 +1,14 @@
 Summary:        Utilities for the statistical testing of uniform random number generators
 Name:           TestU01
 Version:        1.2.3
-Release:        4%{?dist}
+Release:        5%{?dist}
 License:        Custom (Non-Commercial Use Only)
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Group:          Development/Libraries
 Source0:        http://www.iro.umontreal.ca/~simardr/testu01/%{name}.zip
 URL:            http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
 
+Patch1:         TestU01-format-security.patch
 BuildRequires:  glibc-common
 %if 0%{?rhel}==5
 BuildRequires:  tetex-latex
@@ -46,6 +47,7 @@ Headers and shared object symbolic links for the %{name}.
 
 %prep
 %setup -q
+%patch1 -p1 -b .fix-format-security
 # Convert to utf-8
 for file in COPYING param/LCGGranger.par; do
     iconv -f ISO-8859-1 -t UTF-8 -o $file.new $file && \
@@ -93,6 +95,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun Feb 21 2016 Sérgio Basto <sergio@serjux.com> - 1.2.3-5
+- Fix FTBFS (rfbz#3440)
+
 * Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 1.2.3-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
