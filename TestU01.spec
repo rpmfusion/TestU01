@@ -8,7 +8,9 @@ Group:          Development/Libraries
 Source0:        http://www.iro.umontreal.ca/~simardr/testu01/%{name}.zip
 URL:            http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
 
+
 Patch1:         TestU01-format-security.patch
+BuildRequires:  gcc-c++
 BuildRequires:  glibc-common
 %if 0%{?rhel}==5
 BuildRequires:  tetex-latex
