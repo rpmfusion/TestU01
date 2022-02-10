@@ -1,22 +1,17 @@
+%global __brp_check_rpaths %{nil}
 Summary:        Utilities for the statistical testing of uniform random number generators
 Name:           TestU01
 Version:        1.2.3
 Release:        17%{?dist}
 License:        Custom (Non-Commercial Use Only)
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Group:          Development/Libraries
-Source0:        http://www.iro.umontreal.ca/~simardr/testu01/%{name}.zip
+Source0:        %url/~simardr/testu01/%{name}.zip
 URL:            http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
 
 
 Patch1:         TestU01-format-security.patch
 BuildRequires:  gcc-c++
 BuildRequires:  glibc-common
-%if 0%{?rhel}==5
-BuildRequires:  tetex-latex
-%else
 BuildRequires:  texlive-latex
-%endif
 
 %description 
 TestU01 is a software library, implemented in the ANSI C language, and offering
@@ -42,7 +37,6 @@ period length, before the generator starts to fail the test systematically.
 
 %package devel
 Summary: Headers and shared object symbolic links for the %{name}
-Group: Development/Libraries
 Requires:  %{name}%{?_isa} = %{version}-%{release}
 %description devel
 Headers and shared object symbolic links for the %{name}.
@@ -59,12 +53,11 @@ done
 
 %build
 %configure
-make  %{?_smp_mflags} V=1
+%make_build
 
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} INSTALL="%{__install} -p"
+%make_install
 
 
 rm -rf %{buildroot}%{_libdir}/*.la
@@ -75,19 +68,15 @@ rm -rf %{buildroot}%{_bindir}/tcode
 
 %postun -p /sbin/ldconfig
 
-%clean
-rm -rf %{buildroot}
-
-
 %files
-%defattr(-,root,root,-)
-%doc README COPYING NEWS
+%doc README NEWS
+%license  COPYING
 %docdir %{_datadir}/%{name}/doc
+%dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/doc
 %{_libdir}/*.so.*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/*
 %{_libdir}/*.so
 %docdir %{_datadir}/%{name}/examples
