@@ -1,7 +1,7 @@
 Summary:        Utilities for the statistical testing of uniform random number generators
 Name:           TestU01
 Version:        1.2.3
-Release:        16%{?dist}
+Release:        17%{?dist}
 License:        Custom (Non-Commercial Use Only)
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Group:          Development/Libraries
@@ -97,6 +97,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.2.3-17
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
+
 * Tue Aug 03 2021 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.2.3-16
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
 
