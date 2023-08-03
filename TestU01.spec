@@ -4,9 +4,8 @@ Name:           TestU01
 Version:        1.2.3
 Release:        19%{?dist}
 License:        Custom (Non-Commercial Use Only)
+URL:            http://simul.iro.umontreal.ca/testu01/tu01.html
 Source0:        http://simul.iro.umontreal.ca/testu01/%{name}.zip
-URL:            http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
-
 
 Patch1:         TestU01-format-security.patch
 BuildRequires:  gcc-c++
