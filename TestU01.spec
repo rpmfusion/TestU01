@@ -42,7 +42,7 @@ Headers and shared object symbolic links for the %{name}.
 
 %prep
 %setup -q
-%patch1 -p1 -b .fix-format-security
+%patch -P1 -p1 -b .fix-format-security
 # Convert to utf-8
 for file in COPYING param/LCGGranger.par; do
     iconv -f ISO-8859-1 -t UTF-8 -o $file.new $file && \
