@@ -8,6 +8,7 @@ URL:            http://simul.iro.umontreal.ca/testu01/tu01.html
 Source0:        http://simul.iro.umontreal.ca/testu01/%{name}.zip
 
 Patch1:         TestU01-format-security.patch
+Patch2:         upstream-fix-migration_to_C23-cleanup.patch.patch
 BuildRequires:  gcc-c++
 BuildRequires:  glibc-common
 BuildRequires:  texlive-latex
@@ -43,6 +44,7 @@ Headers and shared object symbolic links for the %{name}.
 %prep
 %setup -q
 %patch -P1 -p1 -b .fix-format-security
+%patch -P2 -p1 -b .fix-c23-issue
 # Convert to utf-8
 for file in COPYING param/LCGGranger.par; do
     iconv -f ISO-8859-1 -t UTF-8 -o $file.new $file && \

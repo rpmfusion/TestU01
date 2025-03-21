@@ -1,0 +1,22 @@
+Description: upstream - fix migration to C23 issues
+ Clean up now obsoleted declarations/definitions.
+ This patch closes Debian bug #1093361.
+Origin: vendor, Debian
+Forwarded: no-more-maintained-by-upstream
+Author: Jerome Benoit <calculus@rezozer.net>
+Last-Update: 2025-01-25
+
+--- a/testu01/ucryptoIS.c
++++ b/testu01/ucryptoIS.c
+@@ -143,9 +143,9 @@
+  If (flag==TRUE), then use the contents of randrsl[0..RANDSIZ-1] as the seed.
+ ------------------------------------------------------------------------------
+ */
+-static void randinit(/*_ randctx *r, word flag _*/);
++static void randinit(/*_*/ randctx *r, word flag /*_*/);
+ 
+-static void isaac(/*_ randctx *r _*/);
++static void isaac(/*_*/ randctx *r /*_*/);
+ 
+ 
+ /*
