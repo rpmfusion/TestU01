@@ -2,7 +2,7 @@
 Summary:        Utilities for the statistical testing of uniform random number generators
 Name:           TestU01
 Version:        1.2.3
-Release:        23%{?dist}
+Release:        24%{?dist}
 License:        Custom (Non-Commercial Use Only)
 URL:            http://simul.iro.umontreal.ca/testu01/tu01.html
 Source0:        http://simul.iro.umontreal.ca/testu01/%{name}.zip
@@ -87,6 +87,9 @@ rm -rf %{buildroot}%{_bindir}/tcode
 
 
 %changelog
+* Mon Feb 02 2026 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.2.3-24
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_44_Mass_Rebuild
+
 * Sun Jul 27 2025 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.2.3-23
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_43_Mass_Rebuild
 
